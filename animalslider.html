@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Fullscreen Slider</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            font-family: "poppins", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            outline: none;
+            -webkit-tab-highlight-color: transparent;
+            cursor: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        #main {
+            display: flex;
+        }
+
+
+
+        .content {
+            width: 90%;
+            color: #FFF;
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 99;
+            font-size: 0.8em;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            margin: 0.5em auto;
+        }
+
+        .content span {
+            width: auto;
+            height: auto;
+            border: 1px solid #FFF;
+            display: inline-block;
+            border-radius: 3px;
+            font-size: 0.9em;
+            vertical-align: text-top;
+            padding: 0px 10px;
+        }
+
+        .content a {
+            color: rgba(227, 227, 227, 0.78);
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+        }
+
+        .content a:hover {
+            padding-bottom: 1px;
+        }
+
+
+        #main .part {
+            flex: 1;
+        }
+
+        #main .part .section {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #main .part .section img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            left: var(--x);
+            /* pointer-events: none; */
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+
+        <div class="content">
+            
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="animalslider.js">
+
+    </script>
+</body>
+
+</html>

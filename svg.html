@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+        body {
+            width: 100vw;
+            height: 150vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(175deg,
+                    hsl(240deg 61% 90%) 0%,
+                    hsl(225deg 53% 88%) 5%,
+                    hsl(212deg 47% 86%) 12%,
+                    hsl(200deg 43% 83%) 19%,
+                    hsl(190deg 40% 81%) 28%,
+                    hsl(180deg 38% 79%) 39%,
+                    hsl(173deg 43% 78%) 51%,
+                    hsl(183deg 40% 72%) 62%,
+                    hsl(190deg 42% 67%) 72%,
+                    hsl(194deg 45% 62%) 80%,
+                    hsl(197deg 47% 57%) 88%,
+                    hsl(198deg 49% 51%) 94%,
+                    hsl(197deg 73% 42%) 100%);
+
+        }
+
+        .container {
+            width: 60vw;
+            height: 60vh;
+            position: relative;
+            margin-top: -75vh;
+            animation: animate 5s linear infinite alternate;
+
+        }
+
+        img {
+            /* width: ; */
+            position: absolute;
+            /* animation: animate 5s linear infinite alternate; */
+            object-fit: cover;
+        }
+
+        .btnn {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            left: --left;
+            top: --top;
+            transform: skewX(-10deg);
+            rotate: 45deg;
+            background-color: transparent;
+            z-index: 105;
+        }
+
+
+        .div1 {
+            top: 300px;
+            left: 100px;
+        }
+
+        /* .div1:hover~.img1 {
+            animation: animate 2s linear infinite alternate;
+        }
+
+        .div2:hover~.img2 {
+            animation: animate 2s linear infinite alternate;
+        }
+
+        .div3:hover~.img3 {
+            animation: animate 2s linear infinite alternate;
+        }
+
+        .div4:hover~.img4 {
+            animation: animate 2s linear infinite alternate;
+        }
+
+        .div5:hover~.img5 {
+            animation: animate 2s linear infinite alternate;
+        }
+
+        .div6:hover~.img6 {
+            animation: animate 2s linear infinite alternate;
+        } */
+
+
+
+        .div2 {
+            top: 750px;
+            left: 160px;
+        }
+
+        .div3 {
+            height: 250px;
+            width: 250px;
+            top: 500px;
+            left: 400px;
+        }
+
+        .div4 {
+            top: 300px;
+            left: 600px;
+        }
+
+        .div5 {
+            top: 500px;
+            left: 800px;
+        }
+
+        .div6 {
+            height: 400px;
+            top: 750px;
+            left: 500px;
+        }
+
+        h1 {
+            width: 30vw;
+            margin-left: 700px;
+            opacity: 0;
+        }
+
+        h2 {
+            width: 30vw;
+            font-size: 40px;
+            margin-left: 700px;
+            opacity: 0;
+        }
+
+        h3 {
+            width: 30vw;
+            font-size: 40px;
+            opacity: 0;
+            margin-top: -400px;
+        }
+
+        h4 {
+            width: 30vw;
+            font-size: 40px;
+            opacity: 0;
+            margin-top: -400px;
+        }
+
+        h5 {
+            width: 30vw;
+            font-size: 40px;
+            opacity: 0;
+            margin-top: -400px;
+            margin-left: -300px;
+        }
+        #person{
+            width: 40px;
+            position: absolute;
+            animation-play-state: paused;
+            top:70vh;
+            left: 20vw;
+            z-index: 99;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+
+            100% {
+                transform: translateY(25px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img id="person" src="./images/person.svg" alt="">
+        <div class="div1 btnn"></div>
+        <div class="div2 btnn"></div>
+        <div class="div3 btnn"></div>
+        <div class="div4 btnn"></div>
+        <div class="div5 btnn"></div>
+        <div class="div6 btnn"></div>
+        <img class="img1" src="./images/1.svg" alt="">
+        <img class="img2" src="./images/2.svg" alt="">
+        <img class="img3" src="./images/3.svg" alt="">
+        <img class="img4" src="./images/4.svg" alt="">
+        <img class="img5" src="./images/5.svg" alt="">
+        <img class="img6" src="./images/6.svg" alt="">
+
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quia neque nisi laborum, fugit eveniet
+            distinctio suscipit odit nihil libero similique illum, minus dolorem nulla id voluptas porro molestias
+            dolore.</h1>
+        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ea! Esse impedit molestias perspiciatis nam,
+            incidunt deserunt velit recusandae qui similique eveniet unde. Incidunt a distinctio dignissimos sapiente
+            tempore! Est?</h2>
+        <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta dolorum alias magni quo. Repudiandae
+            voluptate illo nemo in corporis harum aliquam nihil officiis est, omnis tempora odio consequatur, atque eos?
+        </h3>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam optio ab labore facere, iusto aspernatur
+            consectetur excepturi assumenda magni velit explicabo, vel voluptatem distinctio rem placeat quo error unde
+            iste.</h4>
+        <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam numquam fuga explicabo incidunt impedit unde
+            eaque ea tempore temporibus dicta deleniti debitis ad ratione, voluptate harum nostrum vel fugiat qui?</h5>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        let div1 = document.querySelector('.div1')
+        let div2 = document.querySelector('.div2')
+        let div3 = document.querySelector('.div3')
+        let div4 = document.querySelector('.div4')
+        let div5 = document.querySelector('.div5')
+        let div6 = document.querySelector('.div6')
+        let img1 = document.querySelector('.img1')
+        let img2 = document.querySelector('.img2')
+        let img3 = document.querySelector('.img3')
+        let img4 = document.querySelector('.img4')
+        let img5 = document.querySelector('.img5')
+        let img6 = document.querySelector('.img6')
+        let body = document.querySelector('body')
+        let img = document.getElementsByTagName('img')
+
+        gsap.from('.img1', {
+            duration: 3,
+            opacity: 0,
+            x: -300,
+            ease: "power1.out"
+        })
+        gsap.from('.img2', {
+            duration: 3,
+            opacity: 0,
+            x: -300,
+            y: 100,
+            ease: "power1.out"
+        })
+        gsap.from('.img3', {
+            duration: 3,
+            opacity: 0,
+            ease: "power1.out"
+
+        })
+        gsap.from('.img4', {
+            duration: 3,
+            opacity: 0,
+            y: -300,
+            ease: "power1.out"
+        })
+        gsap.from('.img5', {
+            duration: 3,
+            opacity: 0,
+            x: 300,
+            ease: "power1.out"
+        })
+        gsap.from('.img6', {
+            duration: 3,
+            opacity: 0,
+            y: 300,
+            ease: "power1.out"
+        })
+        div1.addEventListener('click', function (e) {
+            e.stopPropagation()
+
+            gsap.to('.img1', {
+                duration: 2,
+                scale: 2,
+                x: 400,
+                zIndex: 100
+            })
+            gsap.to('.img2,.img3,.img4,.img5,.img6,#person', {
+                opacity: 0.2,
+                duration: 2
+            })
+            gsap.to('h1', {
+                opacity: 1,
+                duration: 2
+            })
+
+            body.addEventListener('click', function () {
+                gsap.to('.img1', {
+                    duration: 2,
+                    scale: 1,
+                    x: 0
+                })
+                gsap.to('.img2,.img3,.img4,.img5,.img6', {
+                    opacity: 1,
+                    duration: 2
+                })
+                gsap.to('h1', {
+                    opacity: 0,
+                    duration: 2
+                })
+            })
+
+        })
+        div2.addEventListener('click', function (e) {
+            e.stopPropagation()
+            gsap.to('#person',{
+                duration:2,
+                x:-100,
+                y:100,
+                opacity:0
+            })
+            gsap.to('.img2', {
+                delay:1.8,
+                duration: 2,
+                scale: 2,
+                x: 300,
+                y: -500,
+                zIndex: 100
+            })
+            gsap.to('.img1,.img3,.img4,.img5,.img6', {
+                opacity: 0.2,
+                duration: 2
+            })
+            gsap.to('h2', {
+                duration: 2,
+                opacity: 1
+            })
+            
+            body.addEventListener('click', function () {
+                gsap.to('.img2', {
+                    duration: 2,
+                    scale: 1,
+                    x: 0,
+                    y: 0
+                })
+                gsap.to('#person',{
+                    delay:2,
+                    duration:2,
+                    x:0,
+                    y:0,
+                    opacity:1
+                })
+                gsap.to('.img1,.img3,.img4,.img5,.img6', {
+                    opacity: 1,
+                    duration: 2
+                })
+                gsap.to('h2', {
+                    duration: 2,
+                    opacity: 0
+                })
+
+            })
+        })
+        div3.addEventListener('click', function (e) {
+            e.stopPropagation()
+
+            gsap.to('.img3', {
+                duration: 2,
+                scale: 1.2,
+                y: -200,
+                zIndex: 100
+            })
+            gsap.to('.img1,.img2,.img4,.img5,.img6,#person', {
+                opacity: 0.2,
+                duration: 2
+            })
+
+            body.addEventListener('click', function () {
+                gsap.to('.img3', {
+                    duration: 2,
+                    scale: 1,
+                    x: 0,
+                    y: 0
+                })
+                gsap.to('.img1,.img2,.img4,.img5,.img6', {
+                    opacity: 1,
+                    duration: 2
+                })
+
+            })
+
+        })
+        div4.addEventListener('click', function (e) {
+            e.stopPropagation()
+
+            gsap.to('.img4', {
+                duration: 2,
+                scale: 2,
+                x: 300,
+                y: 200,
+                zIndex: 100
+            })
+            gsap.to('.img1,.img2,.img3,.img5,.img6,#person', {
+                opacity: 0.2,
+                duration: 2
+            })
+            gsap.to('h3', {
+                duration: 2,
+                opacity: 1
+            })
+
+            body.addEventListener('click', function () {
+                gsap.to('.img4', {
+                    duration: 2,
+                    scale: 1,
+                    x: 0,
+                    y: 0
+                })
+                gsap.to('.img1,.img2,.img3,.img5,.img6', {
+                    opacity: 1,
+                    duration: 2
+                })
+                gsap.to('h3', {
+                    duration: 2,
+                    opacity: 0
+                })
+
+            })
+        })
+        div5.addEventListener('click', function (e) {
+            e.stopPropagation()
+
+            gsap.to('.img5', {
+                duration: 2,
+                scale: 2,
+                x: -100,
+                zIndex: 100
+            })
+            gsap.to('.img1,.img2,.img4,.img3,.img6,#person', {
+                opacity: 0.2,
+                duration: 2
+            })
+            gsap.to('h4', {
+                duration: 2,
+                opacity: 1
+            })
+
+            body.addEventListener('click', function () {
+                gsap.to('.img5', {
+                    duration: 2,
+                    scale: 1,
+                    x: 0,
+                    y: 0
+                })
+                gsap.to('.img1,.img2,.img4,.img3,.img6', {
+                    opacity: 1,
+                    duration: 2
+                })
+                gsap.to('h4', {
+                    duration: 2,
+                    opacity: 0
+                })
+
+            })
+        })
+        div6.addEventListener('click', function (e) {
+            e.stopPropagation()
+
+            gsap.to('.img6', {
+                duration: 2,
+                scale: 2,
+                x: 100,
+                y: -500,
+                zIndex: 100
+            })
+            gsap.to('.img1,.img2,.img4,.img5,.img3,#person', {
+                opacity: 0.2,
+                duration: 2
+            })
+            gsap.to('h5', {
+                duration: 2,
+                opacity: 1
+            })
+
+
+            body.addEventListener('click', function () {
+                gsap.to('.img6', {
+                    duration: 2,
+                    scale: 1,
+                    x: 0,
+                    y: 0
+                })
+                gsap.to('.img1,.img2,.img4,.img5,.img3', {
+                    opacity: 1,
+                    duration: 2
+                })
+                gsap.to('h5', {
+                    duration: 2,
+                    opacity: 0
+                })
+
+            })
+        })
+    </script>
+</body>
+
+</html>

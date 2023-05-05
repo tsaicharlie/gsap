@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* text-align: center; */
+        }
+
+        svg {
+            position: fixed;
+            top: 10%;
+            left: 30%;
+            display: none;
+            
+            /* animation: magic 4s infinite ; */
+            /* filter: drop-shadow(1px 0px 25px  rgb(218, 42, 42)); */
+            
+
+        }
+        .magic{
+            animation: magic 5s infinite alternate linear;
+        }
+        .changeColor{
+            animation: changeColor 5s infinite alternate linear;
+        }
+
+        svg path {
+            /* stroke-dasharray: 1500;
+            stroke-dashoffset: 1500; */
+            /* animation: magic 4s infinite alternate; */
+            
+        }
+
+        section {
+            height: 100vh;
+        }
+
+        @keyframes magic {
+            0% {
+                
+            }
+            20% {
+                filter: drop-shadow(1px 0px 25px  rgb(255, 0, 0))
+            }
+            40% {
+                filter: drop-shadow(1px 0px 25px  greenyellow)
+            }
+            60% {
+                filter: drop-shadow(1px 0px 25px  skyblue)
+            }
+            80% {
+                filter: drop-shadow(1px 0px 25px  rgb(119, 0, 255))
+            }
+
+            100% {
+
+                filter: drop-shadow(1px 0px 25px  purple);
+
+            }
+        }
+        @keyframes changeColor{
+            0%{
+                stroke: black;
+            }
+            20%{
+                stroke: red;
+            }
+            40%{
+                stroke: greenyellow;
+            }
+            60%{
+                stroke: skyblue;
+            }
+            80%{
+                stroke: rgb(119, 0, 255);
+            }
+            100%{
+                stroke: purple;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+    <section style="background-color: rgba(236, 191, 12, 0.566);"></section>
+    <section></section>
+    <section style="background-color: rgba(223, 182, 17, 0.566);"></section>
+    <section></section>
+    <section style="background-color: rgba(238, 193, 15, 0.566);"></section>
+    <svg width="800" height="800" viewBox="0 0 461 452" fill="none" stroke-width="8">
+        <defs>
+            <!-- <filter id="f2" x="0" y="0" width="200%" height="200%" >
+              <feOffset result="offOut" in="SourceGraphic" dx="30" dy="30" />
+              <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+              <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+              <feColorMatrix color="#1d5a21" />
+            </filter> -->
+          </defs>
+        <path filter="url(#f2)"
+            d="M406.5 232C406.5 321.708 327.518 394.5 230 394.5C132.482 394.5 53.5 321.708 53.5 232C53.5 142.292 132.482 69.5 230 69.5C327.518 69.5 406.5 142.292 406.5 232Z"
+            stroke="black" />
+        <path d="M90.4732 328.75L229.5 70.0562L368.527 328.75H90.4732Z" stroke="black" />
+        <path d="M87.082 146.753L380.717 141.342L223.199 389.211L87.082 146.753Z" stroke="black" />
+    </svg>
+
+
+
+    <script>
+
+        let paths = document.querySelectorAll("path")
+        let svg = document.querySelector('svg')
+
+
+        document.addEventListener('scroll', fillpaths)
+        function fillpaths() {
+            svg.style.display = 'block'
+            let scrollpercentage = (document.documentElement.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
+
+            for (let i = 0; i < paths.length; i++) {
+                let path = paths[i]
+                let pathLength = path.getTotalLength()
+                console.log(pathLength);
+                path.style.strokeDasharray = pathLength
+                path.style.strokeDashoffset = pathLength
+
+                let drawlength = pathLength * scrollpercentage
+                path.style.strokeDashoffset = pathLength - drawlength
+            }
+            if(scrollpercentage==1){
+                setTimeout(()=>{
+                    svg.classList.add('magic')
+                        for(let i=0;i<paths.length;i++){
+                        paths[i].classList.add('changeColor')   
+                        }
+                    },1000
+                )
+            }
+            else{
+                svg.classList.remove('magic')
+                for(let i=0;i<paths.length;i++){
+                     paths[i].classList.remove('changeColor')   
+                    }
+                
+            }
+        }
+    </script>
+</body>
+
+</html>

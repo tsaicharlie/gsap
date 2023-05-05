@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <script src="https://kit.fontawesome.com/a20a61d504.js" crossorigin="anonymous"></script> -->
+    <style>
+        body{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 10%;
+            background-color: #444;
+        }
+        div{
+            display: flex;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            transition:color .5s;
+            
+        }
+        div:hover{
+            background-color: #888;
+            
+        }
+        div:hover i{
+            color: #e1dada;
+        }
+        
+        i{
+            font-size: 50px;
+            color: #888;
+        }
+        .rotate{
+            animation: rotate 8s linear infinite;
+        }
+        
+    @keyframes rotate{
+        0%{
+            rotate: 0;
+        }
+        100%{
+            rotate: 360deg;
+        }
+    }        
+    </style>
+</head>
+<body>
+    
+        <div id="cancel" class="circle9"><i class="fa-solid fa-x"></i></i></div>
+        <div class="circle1"><i class="fa-brands fa-square-js"></i></div>
+        <div class="circle2"><i class="fa-brands fa-github"></i></div>
+        <div class="circle3"><i class="fa-brands fa-wix"></i></div>
+        <div class="circle4"><i class="fa-brands fa-line"></i></div>
+        <div class="circle5"><i class="fa-brands fa-cc-visa"></i></div>
+        <div class="circle6"><i class="fa-brands fa-google-play"></i></div>
+        <div class="circle7"><i class="fa-brands fa-react"></i></div>
+        <div class="circle8"><i class="fa-solid fa-ghost"></i></div> 
+    
+</body>
+
+<script>
+    let btn=document.getElementsByClassName('circle8')[0]
+    let cancel=document.getElementById('cancel')
+    const t=gsap.timeline();
+    btn.addEventListener('click',function(){
+        t.restart()
+        t.to('.circle1',{
+            duration:0.4,
+            rotation:45,
+            transformOrigin:"50% 250px",
+            ease:  "power1.out" 
+        })
+        .to('.circle2',{
+            
+            duration:0.4,
+            rotation:90,
+            transformOrigin:"50% 250px",
+            ease:  "power1.out"
+        })
+        .to('.circle3',{
+            duration:0.4,
+            rotation:135,
+            transformOrigin:"50% 250px",
+            ease:  "power1.out"
+        })
+        .to('.circle4',{
+            duration:0.4,
+            rotation:180,
+            transformOrigin:"50% 250px",
+            ease:   "power1.out"
+        })
+        .to('.circle5',{
+            duration:0.4,
+            rotation:225,
+            transformOrigin:"50% 250px",
+            ease:   "power1.out"
+        })
+        .to('.circle6',{
+            duration:0.4,
+            rotation:270,
+            transformOrigin:"50% 250px",
+            ease:   "power1.out"
+        })
+        .to('.circle7',{
+            duration:0.4,
+            rotation:315,
+            transformOrigin:"50% 250px",
+            ease:  "power1.out"
+        })
+        .to('.circle8',{
+            duration:0.4,
+            rotation:0,
+            transformY:'50% 250px',
+            ease: "power1.out"
+        })
+        .to('.circle9',{
+            duration:1,
+            y:200,
+            ease: "elastic.out(1, 0.3)"
+        })
+    })
+    cancel.addEventListener('click',function(){
+        t.reverse()
+    })
+
+</script>
+</html>

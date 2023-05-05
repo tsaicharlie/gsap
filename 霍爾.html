@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* background-image: url(./scene/1.jfif); */
+            height: 100vh;
+            width: 100vw;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            transform-style: preserve-3d;
+            perspective: 800px;
+        }
+
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(./images/home.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+            transform-style: preserve-3d;
+            transform-origin: 50% 100%;
+
+        }
+
+        .door {
+            width: 618px;
+            height: 690px;
+            background-color: #7f7351;
+            position: absolute;
+            left: 30%;
+            bottom: 0;
+            border-radius: 10px;
+            box-shadow: 0px 0px 0px 8px #000000, 0px 0px 0px 16px #4B4C4B, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+            transform-origin: 0 0;
+            /* transform:rotateY(110deg); */
+            transition: box-shadow .3s;
+        }
+
+        .door:hover {
+
+            box-shadow: 0px 0px 0px 8px #000000, 0px 0px 0px 16px #4B4C4B, 5px 5px 15px 5px rgba(0, 0, 0, 0), 0 0 5px 20px rgba(255, 255, 255, 6);
+        }
+
+        .handle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: burlywood;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+        }
+
+        #pie-chart {}
+
+        .container {
+            width: 260px;
+            height: 260px;
+            position: absolute;
+            right: 8%;
+            top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        p{
+            
+            text-align: center;
+            font-size: 80px;
+        }
+        button{
+            width: 100px;height: 100px;
+            background-color: red ;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="container"><canvas id="pie-chart"></canvas></div>
+        <div class="door">
+            <div class="handle"></div>
+        </div>
+    </div>
+    
+</body>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        let current = 0
+        let body = document.querySelector('body')
+        let scene = ['./scene/1.jfif', './scene/2.jfif', './scene/3.jfif', './scene/4.jfif']
+        let deg = 'rotateY(110deg)'
+        let flag = false
+        let door = document.querySelector('.door')
+        let open
+        let container=document.querySelector('.container')
+        let wrapper=document.querySelector('.wrapper')
+        container.style.rotate = '45deg'
+        let chart = new Chart(document.getElementById('pie-chart'), {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    backgroundColor: ["#e63946",
+                        "#ffbe0b", "#1d3557", "#326998"
+                    ],
+                    data: [250, 250, 250, 250]
+                }]
+
+            },
+            options: {
+                animation: false,
+                hover: { mode: null },
+                events: ['']
+
+
+            }
+        });
+        wrapper.addEventListener('click',function(e){e.stopPropagation()})
+        door.addEventListener('click', function (e) {
+
+            if (flag == false) {
+                open = gsap.to(door, {
+                    transform: deg,
+                    duration: 3,
+                    ease: 'Power4.easeInOut'
+                })
+                flag = true
+            }
+            else {
+                open.reverse()
+                flag = false
+            }
+            console.log(flag);
+            e.stopPropagation()
+
+        })
+        let spin
+        body.style.backgroundImage = 'url(' + scene[current] + ')'
+        
+        window.addEventListener('wheel', function (e) {
+
+            if (e.deltaY > 80) {
+                current++
+                if (current >= scene.length) { current = 0 }
+                
+                
+                
+                spin = gsap.to('.container', {
+                    duration: 1.5,
+                    rotation: '+=90',
+                    ease: "elastic.out(1, 0.2)"
+                })
+                body.style.backgroundImage = 'url(' + scene[current] + ')'
+            }
+            
+
+        
+        
+            else if (e.deltaY < 0) {
+            current--
+            if (current < 0) { current = scene.length - 1 }
+            gsap.to('.container', {
+                duration: 1.5,
+                rotation: '-=90',
+                ease: "elastic.out(1, 0.2)"
+            })
+            body.style.backgroundImage = 'url(' + scene[current] + ')'
+
+        }
+        })
+        let fade
+        let back=document.createElement('button')
+        body.addEventListener('click',function(){
+            fade=gsap.to('.wrapper',{
+                duration:3,
+                scale:3,
+                opacity:0
+            }).then(function(){
+                wrapper.remove()
+                
+                body.innerHTML=('<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae harum, aspernatur et nihil expedita ea ab ex excepturi laudantium voluptas omnis accusamus doloremque error ipsa eum. Dolorum et deserunt suscipit!</p>')
+                body.appendChild(back)
+                gsap.fromTo(body.children[0],{y:-400},{
+                    
+                    duration:2,
+                    y:200
+                })
+            })
+        })
+        
+        back.onclick=function(e){
+            e.stopPropagation()
+            console.log('123');
+            body.appendChild(wrapper)
+        }
+
+    </script>
+
+
+</html>
